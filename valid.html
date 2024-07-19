@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <style>
+
+        button{
+
+            width:150px;
+
+            height:60px;
+
+            font-size: 30px;
+
+            background-image: linear-gradient(#3E5151 , #DECBA4);
+
+        }
+
+        form{
+
+            text-align: center;
+
+            margin-top: 150px;
+
+            color: white;
+
+           
+
+ 
+
+        }
+
+        label{
+
+            font-size: 40px;
+
+        }
+
+        input{
+
+            height:40px;
+
+            width:280px;
+
+            font-size: 50px;
+
+        }
+
+        fieldset{
+
+            text-align: center;
+
+            background-color:#FF00CC ;
+
+            background-image: linear-gradient(#333399,  #FF00CC);
+
+            width:800px;
+
+            height:700px;
+
+            margin-top: 50px;
+
+            margin-left:350px;
+
+            border-style: hidden;
+
+        }
+
+        body{
+
+           
+
+           background-image: linear-gradient(#3E5151 , #DECBA4)
+
+        }
+        .p1{
+            
+            background-color: red;
+            width:150px;     
+        }
+        .p2{
+            background-color: yellow;
+            width:150px;
+        }
+        .p3{
+            background-color: greenyellow;
+            width:150px;
+        }
+        p{
+            text-align: center;
+            margin-left: 330px;
+            color:black
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <fieldset>
+
+        <form>
+
+            <label style="margin-right: 35px;">Name</label>  <input type="text" id="1" style="margin-left: 70px;"><br><br>
+
+            <label style="margin-right: 35px;">mno</label>  <input type="text"  style="margin-left: 95px;"><br><br>
+
+            <label style="margin-right: 22px;">mail id</label>  <input type="text" id="3" style="margin-left: 66px;"><br><br>
+
+            <label>password</label>  <input type="text" id="4" style="margin-left: 46px;" oninput="return fun1()" onmouseout="fun2()"><br><br>
+
+            <p id="p"></p>
+
+            <button onclick=" return fun()" >submit</button>
+
+        </form>
+
+    </fieldset>
+
+    <script>
+
+       
+
+        function fun()
+
+        {
+
+          a=document.getElementById("1").value;
+
+          str=/[a-z]/gi;
+
+          if(a=="")
+
+          {
+
+            alert("enter only name");
+
+            return false;
+
+          }
+
+          if(!str.test(a))
+
+          {
+
+            alert("enter only alphabets");
+
+            return false;
+
+          }
+
+          a=document.getElementById("2").value;
+
+          str=/[0-9]/g;
+          l= a.length;
+
+          if(a=="")
+
+          {
+
+            alert("enter phone no");
+
+            return false;
+
+          }
+
+          if(!str.test(a))
+
+          {
+
+            alert("enter only numbers");
+
+            return false;
+
+          }
+            if(l!=10)
+            {
+                alert("enter exactly 10 digits");
+                return false;
+            }
+          a=document.getElementById("3").value;
+
+          str=/([a-zA-Z0-9])+\@+([a-zA-Z])+\.+([a-z])/g
+
+          if(a=="")
+
+          {
+
+            alert("enter a mail id");
+
+            return false;
+
+          }
+
+          if(!str.test(a))
+
+          {
+
+            alert("enter a valid mail id in the format abc@def.com");
+
+            return false;
+
+ 
+
+          }
+
+          pass=document.getElementById("4").value;
+
+          len=pass.length;
+          
+          if(pass=="")
+
+          {
+
+            alert("enter a password");
+
+            return false;
+
+          }
+          
+         
+
+        }
+
+
+        function fun1()
+
+        {
+
+            pass=document.getElementById("4").value;
+
+            len=pass.length;
+
+            if(len<4)
+
+            {
+
+                document.getElementById("p").innerHTML="password is weak";
+                document.getElementById("p").className="p1";
+
+            }
+
+            if(len>3 && len<8)
+
+            {
+
+                document.getElementById("p").innerHTML="password is medium";
+                document.getElementById("p").className="p2";
+
+            }
+
+            if(len>7 && len<15)
+
+            {
+
+                document.getElementById("p").innerHTML="password is strong";
+                document.getElementById("p").className="p3";
+
+            }
+
+        }
+
+        function fun2(){
+
+            document.getElementById("p").innerHTML="";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
